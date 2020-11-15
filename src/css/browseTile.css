@@ -1,0 +1,55 @@
+.browseTile-body{
+    border-radius: 1rem;
+    background-color: rgb(255,255,255,1);
+    box-shadow: 0 0 1rem rgb(200,200,200,0.5);
+    margin: 1rem;
+}
+
+.browseTile-image{
+    width: inherit;
+    max-width: 10rem;
+}
+
+.browseTile-provider-name{
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.3rem;
+}
+
+.browseTile-provider-service{
+    font-size: 1.4;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.3rem;
+    color: rgb(28, 170, 9);
+}
+
+.browseTile-provider-details{
+    padding: 0!important;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.browseTiles-btn{
+    display: grid;
+    place-content: center;
+}
+
+.browseTiles-btn > .star-ratings{
+    margin: 0 0 1rem 0;
+}
+
+.browseTile-body > .row > .browseTiles-btn  > .btn-info,
+.browseTile-body > .row > .browseTiles-btn  > .btn-info:focus{
+    background-color: rgb(6, 110, 77);
+    outline:none;
+    box-shadow: none;
+}
+
+.browseTile-body > .row > .browseTiles-btn  > .btn-info:hover,
+.browseTile-body > .row > .browseTiles-btn  > .btn-info:active{
+    background-color: rgb(8, 131, 92);
+    box-shadow: 0 0 0.2rem rgb(9, 156, 110);
+}
+

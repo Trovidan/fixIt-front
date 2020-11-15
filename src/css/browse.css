@@ -1,0 +1,44 @@
+.browse-page{
+    background-image: url('../images/69.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2rem;
+}
+.browse-body{
+    width:80%;
+    min-height: 80vh;
+    min-width: 67rem;
+    margin: 0 auto;
+}
+
+.browse-filter{
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 1rem;
+    min-width: 10.5rem!important;
+    box-shadow: 0 0 1rem rgb(200,200,200,0.5);
+}
+
+.providers-loading{
+    display: grid;
+    place-content: center;
+    height: 80vh;
+}
+
+.browse-spinner{
+    width:  5rem;
+    height: 5rem;
+    font-size: 2rem;
+}
+
+.browse-error{
+    display: grid;
+    place-content: center;
+    height: 80vh;
+    font-size: 3rem;
+    font-weight: 700;
+    padding:5rem;
+    text-align: center;
+    color: rgb(70,70,70);
+}

@@ -1,0 +1,31 @@
+.category-filter{
+    position: relative;
+}
+
+.category-filter> *{
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    outline: none;
+    background-color: inherit;
+}
+
+.category-filter> *:hover,
+.category-filter> *:active,
+.category-filter> *:focus{
+    outline:none;
+    text-decoration: none;
+}
+
+.category-filter-title{
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    font-family: cursive;
+}
+
+.category-filter-sub{
+    position: absolute;
+    right: 1rem;
+    top:1.2rem;
+    font-size: 0.8rem;
+}

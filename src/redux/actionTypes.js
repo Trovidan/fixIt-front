@@ -1,0 +1,22 @@
+//login actions
+export const LOGIN_TRY = 'LOGIN_TRY'
+export const LOGIN_VERIFY = 'LOGIN_VERIFY'
+export const LOGIN_FAILED = 'LOGIN_FAILED'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+export const LOGIN_TERMINATE = 'LOGIN_TERMINATE'
+export const CART_ADD = 'CART_ADD'
+export const CART_REMOVE = 'CART_REMOVE'
+
+//service load actions
+export const REQUEST_LOADING = 'REQUEST_LOADING'
+export const FAVORITE_LOADING = 'FAVORITE_LOADING'
+export const REQUEST_FAILED = 'LIST_REQUEST_FAILED'
+export const FAVORITE_FAILED = 'LIST_FAVORITE_FAILED'
+export const REQUEST_SUCCESS = 'LIST_REQUEST_SUCCESS'
+export const FAVORITE_SUCCESS = 'LIST_FAVORITE_SUCCESS'
+
+
+//user details
+
+export const DETAILS_ADD = 'ADD_DETAILS'
+export const DETAILS_DELETE  = 'DELETE_DETAILS'

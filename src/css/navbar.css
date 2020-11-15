@@ -1,0 +1,42 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.navbar{
+    background-color: #eef9ff;
+    width: 100%;
+    padding: 0.11rem 10% 0.2rem 10%!important;
+    /* box-shadow: 0 0 1rem #c2d3da; */
+    overflow-x: hidden;
+}
+
+.navbar-logo{
+    width: 8rem;
+}
+
+.navbar-link{
+    color:#222222;
+    margin: 0 1.5rem;
+    font-size: 1.1rem;
+    padding-top:0.4rem;
+    font-family: cursive;
+}
+
+.navbar-link:hover{
+    color: #4cb98c;
+    text-decoration: none;
+}
+
+.border-radius-10{
+    border-radius: 10px!important;
+}
+.border-radius-20{
+    border-radius: 20px!important;
+}
+.border-radius-30{
+    border-radius: 30px!important;
+}
+.border-radius-40{
+    border-radius: 40px!important;
+}

@@ -1,0 +1,104 @@
+.chat-container{
+    height: 70vh;
+    width: 80%;
+    max-width: 75rem;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 0;
+    box-shadow: 0 0 0.5rem grey;
+}
+
+.chat-page{
+    background-image: url('../images/69.jpg');
+    background-color: rgb(240, 250, 255);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 3rem 0;
+}
+
+.recepient-container{
+    padding: 0;
+    background-color: rgb(256,256,256);
+    border-right: 1px solid rgb(201, 201, 201);
+    border-top-left-radius: 10px;
+}
+
+.recepient-header{
+    background-color: rgb(237, 237, 237);
+    border-top-left-radius: 10px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    height: 7vh;
+}
+
+.chat-user-name{
+    display: flex;
+    flex:1;
+    font-size: medium;
+    line-height: 2rem;
+    font-family: cursive;
+    padding-left: 2rem;
+}
+.recepient{
+    display: flex;
+    height: 4rem;
+    padding: 1rem;
+    box-shadow: 0 0 1px grey;
+}
+
+.chat-receiver-name{
+    display: inline-block;
+    line-height: 2rem;
+    padding-left: 2rem;
+    flex:1;
+}
+
+.message-container{
+    display:flex;
+    flex-direction: column;
+    background-image: url('../images/chatBack2.png');
+    background-size: 9rem 9rem;
+    background-color: rgb(216, 219, 217);
+    border-top-right-radius: 10px;
+    padding: 0;
+}
+
+.message-header{
+    background-color: rgb(237, 237, 237);
+    border-top-right-radius: 10px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    height: 7vh;
+}
+
+.message{
+    position: relative;
+    display: flex;
+}
+.message-right{
+    flex-direction: row;
+}
+
+.message-left{
+    flex-direction: row-reverse;
+}
+.message-content{
+    display: inline-block;
+    max-width: 50%;
+    min-width: 10rem;
+    padding:0.1rem 1rem;
+    margin:1rem;
+    color:white;
+    border-radius: 1rem;
+    box-shadow: 0 0 1px grey;
+}
+
+.sent{
+    background-color: seagreen;
+    
+}
+
+.received{
+    background-color: rgba(36, 64, 78, 0.959);
+}
