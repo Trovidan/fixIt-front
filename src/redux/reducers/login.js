@@ -22,8 +22,7 @@ export const login =  (state=initialLogin, action)=>{
             return {...initialLogin,try: true,err: action.payload};
 
         case ActionTypes.LOGIN_SUCCESS:
-            return {...initialLogin, status:true};
-        
+            return {...initialLogin, status:action.payload};     
             default:
             return state;
     }

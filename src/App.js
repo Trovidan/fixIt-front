@@ -8,10 +8,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import Chat from './routes/chat';
 import Browse from './routes/browse';
+import Request from './routes/requests.js'
+import ServiceProfile from './routes/serviceProfile';
+import AccountDetail from './routes/accountDetail';
+
 
 const store = configureStore();
 function App() {
-  console.log(store);
   return (
     <Provider store={store}>
     <BrowserRouter>
@@ -23,6 +26,9 @@ function App() {
           <Route exact path="/browse" component={Browse} />
           <Route exact path="/about" component={Home} />
           <Route exact path="/chat" component={Chat} />
+          <Route exact path="/requests" component={Request}/>
+          <Route exact path="/account" component={AccountDetail} />
+          <Route exact path="/service/:providerID" component={ServiceProfile} />
           <Footer/>
         </Route>
       </Switch>

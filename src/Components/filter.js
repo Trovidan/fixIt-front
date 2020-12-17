@@ -11,6 +11,15 @@ export default function Filter(props) {
     }
     function handleChange(index) {
         let newState = props.categories;
+        if(props.type === 2){
+            for( let i in newState){
+                console.log(i);
+                // eslint-disable-next-line eqeqeq
+                if(i != index){
+                    newState[i].selected = false
+                }
+            }
+        }
         newState[index].selected = newState[index].selected === true ? false : true;
         props.changeState(newState);
     }
@@ -22,7 +31,7 @@ export default function Filter(props) {
         props.changeState(newState);
     }
     let categoryJSX = categories.map((category, index) =>
-        <div key={category.title} className="ml-4">
+        <div key={category.title} className="ml-3">
             <FormControlLabel onChange={() => handleChange(index)} control={<Checkbox name={category.title} color="primary" checked={category.selected} />} label={category.title} />
         </div>
     );

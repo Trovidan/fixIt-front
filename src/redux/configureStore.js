@@ -2,8 +2,7 @@ import {applyMiddleware, combineReducers, createStore} from 'redux';
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 import { login } from './reducers/login.js';
-import { FavoriteList } from './reducers/favoriteList.js'
-import {RequestList} from './reducers/requestList.js'
+import { Reviews } from './reducers/reviews.js';
 import { UserDetails } from './reducers/userDetails.js';
 
 export const configureStore = ()=>{
@@ -11,9 +10,8 @@ export const configureStore = ()=>{
         combineReducers(
             {
                 login: login,
-                favorite: FavoriteList,
-                request: RequestList,
-                userDetails: UserDetails
+                userDetails: UserDetails,
+                reviews: Reviews
             }
         ),
         applyMiddleware(thunk,logger)

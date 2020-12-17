@@ -36,27 +36,23 @@ export const  services = [
 
 export const experience = [
         {
-            title: "less than 1 yr",
+            title: "1 yr",
             selected: false
         },
         {
-            title: "1 to 2 yr",
+            title: "2 yr",
             selected: false
         },
         {
-            title: "2 to 3 yr",
+            title: "3 yr",
             selected: false
         },
         {
-            title: "2 to 4 yr",
+            title: "4 yr",
             selected: false
         },
         {
-            title: "4 to 5 yr",
-            selected: false
-        },
-        {
-            title: "more than 5yr",
+            title: "5 yr",
             selected: false
         }
     ]
@@ -67,7 +63,7 @@ export const rating=[
             selected: false
         },
         {
-            title: "⭐ ⭐",
+            title: "⭐⭐",
             selected: false
         },
         {
@@ -83,17 +79,18 @@ export const rating=[
             selected: false
         }
     ]
+    
 export const gender=[
         {
-            title: "Male",
+            title: "male",
             selected: false
         },
         {
-            title: "Female",
+            title: "female",
             selected: false
         },
         {
-            title: "Others",
+            title: "others",
             selected: false
         }
     ]

@@ -20,7 +20,7 @@
     box-shadow: 0 0 1rem rgb(200,200,200,0.5);
 }
 
-.providers-loading{
+.browse-providers-loading{
     display: grid;
     place-content: center;
     height: 80vh;

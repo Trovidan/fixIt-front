@@ -31,24 +31,24 @@
     font-size: 0.9rem;
 }
 
-.browseTiles-btn{
+.browseTiles-btn-container{
     display: grid;
     place-content: center;
 }
 
-.browseTiles-btn > .star-ratings{
+.browseTiles-btn-container > .star-ratings{
     margin: 0 0 1rem 0;
 }
 
-.browseTile-body > .row > .browseTiles-btn  > .btn-info,
-.browseTile-body > .row > .browseTiles-btn  > .btn-info:focus{
+.browseTile-body > .row > .browseTiles-btn-container  > .btn-info,
+.browseTile-body > .row > .browseTiles-btn-container  > .btn-info:focus{
     background-color: rgb(6, 110, 77);
     outline:none;
     box-shadow: none;
 }
 
-.browseTile-body > .row > .browseTiles-btn  > .btn-info:hover,
-.browseTile-body > .row > .browseTiles-btn  > .btn-info:active{
+.browseTile-body > .row > .browseTiles-btn-container  > .btn-info:hover,
+.browseTile-body > .row > .browseTiles-btn-container  > .btn-info:active{
     background-color: rgb(8, 131, 92);
     box-shadow: 0 0 0.2rem rgb(9, 156, 110);
 }

@@ -1,20 +1,13 @@
 /* eslint-disable react/jsx-pascal-case */
 //React imports
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import universalCookies from 'universal-cookie'
 
 //bootstrap&css 
 import '../css/navbar.css'
 import logo from '../images/fix-it_logo.png'
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-import Row from 'react-bootstrap/Row'
-import Form from 'react-bootstrap/Form'
-import InputGroup from 'react-bootstrap/InputGroup'
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
-import Alert from 'react-bootstrap/Alert'
+import { Navbar, Nav, NavDropdown, Row, Modal, Col, Button, Alert, InputGroup, Form } from 'react-bootstrap'
 
 //Router & Redux
 import {withRouter,Link} from 'react-router-dom'
@@ -24,7 +17,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form'
 //Custom imports
 import { verifyLogin, tryLogin,validateToken, logout } from '../redux/actionCreators/login.js'
 import * as validators from '../redux/validators.js'
-
+import {CUSTOMER, PROVIDER} from '../data/constants.js'
 
 const mapStateToProps = (state) => {
     return {
@@ -35,7 +28,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    verifyLogin: (user_details) => dispatch(verifyLogin(user_details)),
+    verifyLogin: (user_details, status) => dispatch(verifyLogin(user_details,status)),
     tryLogin: () => dispatch(tryLogin()),
     logout: () => dispatch(logout()),
     validateToken: ()=> dispatch(validateToken())
@@ -49,12 +42,21 @@ const errorStyle = {
 
 function NavbarComponent(props) {
 
-    const menu = props.login.status ? ['Home', 'Browse', 'Requests', 'Chat'] :['Home', 'Browse', 'About'];
-    const cookies = new universalCookies()
-
-    if(cookies.get('token') && !props.login.status){
-        props.validateToken()
+    let menu = ['Home', 'Browse', 'About'];
+    if (props.login.status == CUSTOMER){
+        menu=['Home', 'Browse', 'Requests', 'Chat']
     }
+    else if(props.login.status == PROVIDER){
+        menu = ['Home', 'Requests', 'Chat']
+    }
+    const cookies = new universalCookies()
+    useEffect(()=>{
+        if(cookies.get('token') && !props.login.status){
+            console.log(cookies.get('token'));
+            props.validateToken()
+        }
+    })
+    
     return (
         <Navbar collapseOnSelect expand="lg">
             <Link to="/" className="navbar-brand">
@@ -73,23 +75,33 @@ function NavbarComponent(props) {
                 </Nav>
                 <Nav>
                     <Link to='/' className="navbar-link">Help</Link>
-                    {props.login.status ?
-                        <Button onClick={() => props.logout()} variant="dark border-radius-20" >logout</Button>
-                        : <Button onClick={() => props.tryLogin()} variant="info border-radius-20" >login</Button>
+                    {props.login.status ? <>
+                        <NavDropdown title="Profile" className="navbar-link mx-0 pt-0" id="collasible-nav-dropdown">
+                            <NavDropdown.Item key="account" className="d-flex justify-content-center"><Link className="navbar-sublink" to="/account">Account</Link></NavDropdown.Item>
+                            <NavDropdown.Item key="reviews" className="d-flex justify-content-center"><Link className="navbar-sublink" to="/review">Reviews</Link></NavDropdown.Item>
+                            <NavDropdown.Item key="requests" className="d-flex justify-content-center"><Link className="navbar-sublink" to="/requests">Requests</Link></NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item className="d-flex justify-content-center"><Link className="navbar-sublink" to="/home" onClick={() => { props.logout() }}>Sign Out!</Link></NavDropdown.Item>
+                        </NavDropdown>
+                        </> :
+                        <Button onClick={() => props.tryLogin()} variant="info border-radius-20" >login</Button>
+                        
                     }
                 </Nav>
             </Navbar.Collapse>
-            <MyVerticallyCenteredModal show={props.login.try} err={props.login.err} login={(val) => props.verifyLogin(val)} onHide={() => { props.logout() }} />
+            <Login show={props.login.try} err={props.login.err} login={(val,status) => props.verifyLogin(val,status)} onHide={() => { props.logout() }} />
         </Navbar>
     );
 }
 
 
-function MyVerticallyCenteredModal(props) {
+function Login(props) {
 
     function handleSubmit(values) {
-        props.login(values);
+        props.login(values,user);
     }
+    
+    const [user,setUser] = React.useState(CUSTOMER)
     return (
         <Modal
             {...props}
@@ -100,8 +112,17 @@ function MyVerticallyCenteredModal(props) {
             <Modal.Header className="d-flex justify-content-center" closeButton>
                 <span className="h3 mr-0 ml-auto">Login</span>
             </Modal.Header>
-            <LocalForm className="mt-3 px-3" onSubmit={(values) => handleSubmit(values)}>
+            <Row className="modal-nav">
+                <Col className = {user === CUSTOMER?`modal-selected-left`:`modal-unselected-tab`}>
+                    <button className="modal-nav-btn"onClick={() => { setUser(CUSTOMER) }}>Customer</button>
+                </Col>
+                <Col className={user === PROVIDER ? `modal-selected-right` : `modal-unselected-tab`}>
+                    <button className="modal-nav-btn" onClick = {()=>{setUser(PROVIDER)}}>Provider</button>
+                </Col>
+            </Row>
+            <LocalForm className="px-3" onSubmit={(values) => handleSubmit(values)}>
                 <Modal.Body>
+                    
                     <Row className="form-group mx-1">
                         <Form.Label className="font-italic font-weight-light">Email</Form.Label>
                         <InputGroup className="mb-2">
@@ -123,7 +144,7 @@ function MyVerticallyCenteredModal(props) {
                             show="touched"
                             messages={{
                                 isEmail: "*Valid e-mail required!"
-                            }}
+                            }} 
                         />
                     </Row>
                     <Row className="form-group mx-1">
